@@ -16,7 +16,7 @@ The Hangman game includes different words from the names of people, fruits, anim
 ***
 #### ***Get Started***
 
-The project has been uploaded and published; you can view the dashboard [here](#).
+The project has been uploaded and published; you can view the game [here](#).
 ***
 #### ***ScreenShots***
 ##### Hangman Game
