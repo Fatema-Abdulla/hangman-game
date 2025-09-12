@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./script.js"></script>
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <div class="heading-game">
+      <h1>Hangman Game</h1>
+    </div>
+
+    <div class="top-bar">
+      <div class="score">Score:</div>
+      <div class="round">Round</div>
+      <div class="timer">Time:</div>
+    </div>
+
+    <section class="body-game">
+      <img src="./assets/transparent.png" alt="gallows-platform" />
+
+      <section class="guess-word">
+        <div class="boxes">
+          <span class="box"></span>
+          <span class="box"></span>
+          <span class="box"></span>
+          <span class="box"></span>
+        </div>
+        <div class="Keyboard">
+          <div class="top-letters">
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+            <span>D</span>
+            <span>E</span>
+            <span>F</span>
+            <span>G</span>
+            <span>H</span>
+            <span>I</span>
+          </div>
+          <div class="middle-letters">
+            <span>J</span>
+            <span>K</span>
+            <span>L</span>
+            <span>M</span>
+            <span>N</span>
+            <span>O</span>
+            <span>P</span>
+            <span>Q</span>
+            <span>R</span>
+          </div>
+
+          <div class="bottom-letters">
+            <span>S</span>
+            <span>T</span>
+            <span>U</span>
+            <span>V</span>
+            <span>W</span>
+            <span>X</span>
+            <span>Y</span>
+            <span>Z</span>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="hint">
+      <div class="display-hint">
+        <button class="hint-btn">Hint</button>
+        <div class="hint-sentance"></div>
+      </div>
+      <div class="reset-game">
+        <button class="reset-btn">Reset</button>
+      </div>
+    </section>
+  </body>
+</html>

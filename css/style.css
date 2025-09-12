@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/bg-game.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.start-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 60px;
+  position: relative;
+  top: 120px;
+}
+
+.title-game {
+  font-size: 70px;
+  color: #512101;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.play-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 140px;
+  height: 50px;
+  font-size: 22px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background-color: #f97a00;
+  color: #fff;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* game style */
+.heading-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.body-game {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.body-game img {
+  width: 512px;
+  height: 512px;
+  position: relative;
+  top: 2px;
+}
+
+.guess-word {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.boxes .box {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(249, 122, 0, 0.36);
+  border: 1px solid #f97a00;
+  position: relative;
+  top: -100px;
+}
+
+.Keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-letters,
+.bottom-letters {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+
+.middle-letters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 19px;
+}
+
+.top-letters span,
+.middle-letters span,
+.bottom-letters span {
+  background-color: #fed16a;
+  border-radius: 5px;
+  width: 30px;
+  height: 25px;
+  text-align: center;
+  padding-top: 5px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+}

@@ -20,7 +20,7 @@ The project has been uploaded and published; you can view the game [here](#).
 ***
 #### ***ScreenShots***
 ##### Hangman Game
-![hangman](./Start-Game.png)
+![hangman](./assets/Start-Game.png)
 
 ***
 #### ***Credits***
