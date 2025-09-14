@@ -25,4 +25,4 @@ The project has been uploaded and published; you can view the game [here](#).
 ***
 #### ***Credits***
 
-##### -
+##### [Math.random()](https://stackoverflow.com/questions/1516695/js-math-random-for-array)
