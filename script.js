@@ -3,8 +3,9 @@ let score = 0
 let time = 0
 const keyboard = document.querySelectorAll(".letter")
 const boxLetter = document.querySelectorAll(".box")
-const reset = document.querySelector(".reset-btn")
-const hint = document.querySelector(".hint-btn")
+const resetButton = document.querySelector(".reset-btn")
+const hintButton = document.querySelector(".hint-btn")
+const hintBox = document.querySelector(".hint-sentence")
 const word = [
   {
     wordGuess: "NORA",
@@ -77,6 +78,10 @@ const selectLetter = (index) => {
     clickedLetter.push(wrong)
   }
 }
+const displayHint = () => {
+  let hintForWord = randomWord.hint
+  hintBox.innerText = hintForWord
+}
 // check if word similar what add in variable
 // increment the score if guess correct and move to other round
 // timer is less from 1min to 0
@@ -89,3 +94,5 @@ for (let i = 0; i < keyboard.length; i++) {
     selectLetter(i)
   })
 }
+
+hintButton.addEventListener("click", displayHint)
