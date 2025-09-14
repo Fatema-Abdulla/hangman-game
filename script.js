@@ -1,11 +1,47 @@
 /////////////// Global variable
+let score = 0
+let timer = 0
+let countWrong = 0
+const clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
+let imageDraw = document.querySelector(".platform")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
-const clickedLetter = []
-let score = 0
-let timer = 0
+const imgList = [
+  {
+    src: "./assets/Face.png",
+    alt: "first wrong",
+  },
+  {
+    src: "./assets/body.png",
+    alt: "second wrong",
+  },
+  {
+    src: "./assets/aram-right.png",
+    alt: "third wrong",
+  },
+  {
+    src: "./assets/aram-left.png",
+    alt: "four wrong",
+  },
+  {
+    src: "./assets/leg-right.png",
+    alt: "five wrong",
+  },
+  {
+    src: "./assets/leg-left.png",
+    alt: "six wrong",
+  },
+  {
+    src: "./assets/eye-right.png",
+    alt: "third wrong",
+  },
+  {
+    src: "./assets/eye-left.png",
+    alt: "third wrong",
+  },
+]
 const allLetter = [
   "A",
   "B",
@@ -106,11 +142,15 @@ const selectLetter = (index) => {
       }
     }
   }
-
   if (!found && !clickedLetter.includes(letterKeyboard)) {
     const wrong = (keyboard[index].innerText = "❌")
     clickedLetter.push(wrong)
-    console.log(clickedLetter)
+    for (let m = 0; m < imgList.length; m++) {
+      if (countWrong++) {
+        imageDraw.setAttribute("src", imgList[m].src)
+        imageDraw.setAttribute("alt", imgList[m].alt)
+      }
+    }
   }
 }
 
