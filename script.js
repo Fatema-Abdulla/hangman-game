@@ -1,11 +1,14 @@
 /////////////// Global variable
 let score = 0
-let time = 0
+let time = "1:00"
 const keyboard = document.querySelectorAll(".letter")
 const boxLetter = document.querySelectorAll(".box")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
+const topLetterKeyboard = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
+const middleLetterKeyboard = ["J", "K", "L", "M", "N", "O", "P", "Q", "R"]
+const bottomLetterKeyboard = ["S", "T", "U", "V", "W", "X", "Y", "Z"]
 const word = [
   {
     wordGuess: "NORA",
@@ -40,6 +43,27 @@ const word = [
 ]
 const clickedLetter = []
 const boxDiv = document.querySelector(".boxes")
+
+for (let i = 0; i < topLetterKeyboard.length; i++) {
+  const newSpan = document.createElement("span")
+  newSpan.setAttribute("class", "letter")
+  newSpan.innerText = topLetterKeyboard[i]
+  document.querySelector(".top-letters").appendChild(newSpan)
+}
+
+for (let i = 0; i < middleLetterKeyboard.length; i++) {
+  const newSpan = document.createElement("span")
+  newSpan.setAttribute("class", "letter")
+  newSpan.innerText = middleLetterKeyboard[i]
+  document.querySelector(".middle-letters").appendChild(newSpan)
+}
+
+for (let i = 0; i < bottomLetterKeyboard.length; i++) {
+  const newSpan = document.createElement("span")
+  newSpan.setAttribute("class", "letter")
+  newSpan.innerText = bottomLetterKeyboard[i]
+  document.querySelector(".bottom-letters").appendChild(newSpan)
+}
 /////////////// Functions
 const addNewBox = () => {
   let wordLength = false
@@ -78,9 +102,19 @@ const selectLetter = (index) => {
     clickedLetter.push(wrong)
   }
 }
+
 const displayHint = () => {
   let hintForWord = randomWord.hint
   hintBox.innerText = hintForWord
+}
+
+const clickReset = () => {
+  time = 0
+  score = 0
+  for (let i = 0; i < clickedLetter; i++) {
+    clickedLetter.pop()
+  }
+  console.log(clickedLetter)
 }
 // check if word similar what add in variable
 // increment the score if guess correct and move to other round
@@ -96,3 +130,4 @@ for (let i = 0; i < keyboard.length; i++) {
 }
 
 hintButton.addEventListener("click", displayHint)
+resetButton.addEventListener("click", clickReset)
