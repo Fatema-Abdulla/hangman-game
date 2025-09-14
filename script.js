@@ -35,11 +35,11 @@ const imgList = [
   },
   {
     src: "./assets/eye-right.png",
-    alt: "third wrong",
+    alt: "seven wrong",
   },
   {
     src: "./assets/eye-left.png",
-    alt: "third wrong",
+    alt: "eight wrong",
   },
 ]
 const allLetter = [
@@ -145,11 +145,10 @@ const selectLetter = (index) => {
   if (!found && !clickedLetter.includes(letterKeyboard)) {
     const wrong = (keyboard[index].innerText = "❌")
     clickedLetter.push(wrong)
-    for (let m = 0; m < imgList.length; m++) {
-      if (countWrong++) {
-        imageDraw.setAttribute("src", imgList[m].src)
-        imageDraw.setAttribute("alt", imgList[m].alt)
-      }
+    if (countWrong < imgList.length) {
+      imageDraw.setAttribute("src", imgList[countWrong].src)
+      imageDraw.setAttribute("alt", imgList[countWrong].alt)
+      countWrong++
     }
   }
 }
