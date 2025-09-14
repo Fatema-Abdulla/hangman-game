@@ -94,14 +94,16 @@ body {
   border: 1px solid #f97a00;
   position: relative;
   top: -100px;
+  text-align: center;
 }
 
-.Keyboard {
+.keyboard {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  cursor: pointer;
 }
 
 .top-letters,
