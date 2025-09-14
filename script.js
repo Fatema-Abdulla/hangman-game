@@ -1,14 +1,40 @@
 /////////////// Global variable
-let score = 0
-let time = "1:00"
-const keyboard = document.querySelectorAll(".letter")
 const boxLetter = document.querySelectorAll(".box")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
-const topLetterKeyboard = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
-const middleLetterKeyboard = ["J", "K", "L", "M", "N", "O", "P", "Q", "R"]
-const bottomLetterKeyboard = ["S", "T", "U", "V", "W", "X", "Y", "Z"]
+const clickedLetter = []
+let found = false
+let score = 0
+let time = "1:00"
+const allLetter = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+]
 const word = [
   {
     wordGuess: "NORA",
@@ -41,46 +67,30 @@ const word = [
     hint: "Name of city in GCC.",
   },
 ]
-const clickedLetter = []
-const boxDiv = document.querySelector(".boxes")
 
-for (let i = 0; i < topLetterKeyboard.length; i++) {
-  const newSpan = document.createElement("span")
-  newSpan.setAttribute("class", "letter")
-  newSpan.innerText = topLetterKeyboard[i]
-  document.querySelector(".top-letters").appendChild(newSpan)
+for (let i = 0; i < allLetter.length; i++) {
+  const newLetter = document.createElement("span")
+  newLetter.setAttribute("class", "letter")
+  newLetter.innerText = allLetter[i]
+  document.querySelector(".keyboard").appendChild(newLetter)
 }
+const keyboard = document.querySelectorAll(".letter")
+let randomWord = word[Math.floor(Math.random() * word.length)]
+let wordLetter = randomWord.letters
 
-for (let i = 0; i < middleLetterKeyboard.length; i++) {
-  const newSpan = document.createElement("span")
-  newSpan.setAttribute("class", "letter")
-  newSpan.innerText = middleLetterKeyboard[i]
-  document.querySelector(".middle-letters").appendChild(newSpan)
-}
-
-for (let i = 0; i < bottomLetterKeyboard.length; i++) {
-  const newSpan = document.createElement("span")
-  newSpan.setAttribute("class", "letter")
-  newSpan.innerText = bottomLetterKeyboard[i]
-  document.querySelector(".bottom-letters").appendChild(newSpan)
-}
 /////////////// Functions
 const addNewBox = () => {
-  let wordLength = false
-  if (boxLetter.length < wordLetter.length && wordLength) {
+  const needNewBox = wordLetter.length - boxLetter.length
+  for (let i = 0; i < needNewBox; i++) {
     const newBox = document.createElement("span")
     newBox.setAttribute("class", "box")
     document.querySelector(".boxes").appendChild(newBox)
-    wordLength = true
   }
 }
-let found = false
-let randomWord = word[Math.floor(Math.random() * word.length)]
-let wordLetter = randomWord.letters
-console.log(wordLetter)
 
 const selectLetter = (index) => {
   const letterKeyboard = keyboard[index].innerText
+
   if (wordLetter.includes(letterKeyboard)) {
     for (let i = 0; i < wordLetter.length; i++) {
       if (wordLetter[i] === letterKeyboard) {
@@ -88,7 +98,6 @@ const selectLetter = (index) => {
         found = true
         if (found && !clickedLetter.includes(letterKeyboard)) {
           const correct = (keyboard[index].innerText = "✔️")
-          console.log(correct)
           clickedLetter.push(correct)
           console.log(clickedLetter)
         }
@@ -98,8 +107,8 @@ const selectLetter = (index) => {
 
   if (!found && !clickedLetter.includes(letterKeyboard)) {
     const wrong = (keyboard[index].innerText = "❌")
-    console.log(wrong)
     clickedLetter.push(wrong)
+    console.log(clickedLetter)
   }
 }
 
@@ -123,6 +132,8 @@ const clickReset = () => {
 // draw the man if choose wrong letter
 
 /////////////// Events
+addNewBox()
+
 for (let i = 0; i < keyboard.length; i++) {
   keyboard[i].addEventListener("click", () => {
     selectLetter(i)

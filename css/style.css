@@ -98,34 +98,18 @@ body {
 }
 
 .keyboard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(9, 2fr);
   gap: 20px;
   cursor: pointer;
 }
 
-.top-letters,
-.bottom-letters {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  gap: 20px;
-}
-
-.middle-letters {
+.keyboard span {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 19px;
-}
-
-.top-letters span,
-.middle-letters span,
-.bottom-letters span {
+  align-items: center;
   background-color: #fed16a;
   border-radius: 5px;
   width: 30px;
