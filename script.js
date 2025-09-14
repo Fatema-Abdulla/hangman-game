@@ -1,12 +1,11 @@
 /////////////// Global variable
-const boxLetter = document.querySelectorAll(".box")
+let boxLetter = document.querySelectorAll(".box")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
 const clickedLetter = []
-let found = false
 let score = 0
-let time = "1:00"
+let timer = 0
 const allLetter = [
   "A",
   "B",
@@ -86,9 +85,12 @@ const addNewBox = () => {
     newBox.setAttribute("class", "box")
     document.querySelector(".boxes").appendChild(newBox)
   }
+  boxLetter = document.querySelectorAll(".box")
 }
 
+addNewBox()
 const selectLetter = (index) => {
+  let found = false
   const letterKeyboard = keyboard[index].innerText
 
   if (wordLetter.includes(letterKeyboard)) {
@@ -118,7 +120,7 @@ const displayHint = () => {
 }
 
 const clickReset = () => {
-  time = 0
+  timer = 0
   score = 0
   for (let i = 0; i < clickedLetter; i++) {
     clickedLetter.pop()
@@ -132,8 +134,6 @@ const clickReset = () => {
 // draw the man if choose wrong letter
 
 /////////////// Events
-addNewBox()
-
 for (let i = 0; i < keyboard.length; i++) {
   keyboard[i].addEventListener("click", () => {
     selectLetter(i)

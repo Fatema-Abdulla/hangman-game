@@ -5,7 +5,7 @@
 ***
 #### ***Description***
 
-The Hangman game includes different words from the names of people, fruits, animals, and countries. Each player has a chance to guess the words by selecting the correct letters within one minute for each round. Correctly guessing the words increases your scores, but failing to do so will result in a loss.
+The Hangman game includes different words from the names of fruits, animals, and countries. Each player has a chance to guess the words by selecting the correct letters within one minute for each round. Correctly guessing the words increases your scores, but failing to do so will result in a loss.
 ***
 #### ***Technologies Used***
 
