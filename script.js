@@ -83,6 +83,11 @@ const word = [
     hint: "First country to make pizza.",
   },
   {
+    category: "Animals",
+    wordGuess: "ELEPHANT",
+    hint: "The largest animal on land.",
+  },
+  {
     category: "Fruits",
     wordGuess: "ORANGE",
     hint: "Have many vitamin C if eat it.",
@@ -93,6 +98,11 @@ const word = [
     hint: "A GCC with natural landscapes and mountains.",
   },
   {
+    category: "Animals",
+    wordGuess: "MONKEY",
+    hint: "It's eat a lot of banana.",
+  },
+  {
     category: "Fruits",
     wordGuess: "MELON",
     hint: "Sweet with high water content.",
@@ -101,6 +111,11 @@ const word = [
     category: "Countries",
     wordGuess: "EGYPT",
     hint: "It has many pyramids.",
+  },
+  {
+    category: "Animals",
+    wordGuess: "LION",
+    hint: "King in the forest.",
   },
 ]
 
