@@ -1,6 +1,5 @@
 /////////////// Global variable
-let score = 0
-let timer = 0
+let score = 1
 let countWrong = 0
 const clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
@@ -8,6 +7,7 @@ let imageDraw = document.querySelector(".platform")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
+const showScore = document.querySelector(".score")
 const imgList = [
   {
     src: "./assets/Face.png",
@@ -72,34 +72,34 @@ const allLetter = [
 ]
 const word = [
   {
-    wordGuess: "NORA",
-    letters: ["N", "O", "R", "A"],
-    hint: "Name of female.",
+    category: "Fruits",
+    wordGuess: "BANANA",
+    hint: "This yellow curved and take energy.",
   },
   {
-    wordGuess: "SARA",
-    letters: ["S", "A", "R", "A"],
-    hint: "Name of female.",
+    category: "Countries",
+    wordGuess: "ITALY",
+    hint: "First country to make pizza.",
   },
   {
-    wordGuess: "CAT",
-    letters: ["C", "A", "T"],
-    hint: "It's animals.",
+    category: "Fruits",
+    wordGuess: "ORANGE",
+    hint: "Have many vitamin C if eat it.",
   },
   {
-    wordGuess: "Dog",
-    letters: ["D", "O", "G"],
-    hint: "It's animals.",
-  },
-  {
+    category: "Countries",
     wordGuess: "OMAN",
-    letters: ["O", "M", "A", "N"],
-    hint: "Name of city in GCC.",
+    hint: "A GCC with natural landscapes and mountains.",
   },
   {
-    wordGuess: "BAHRAIN",
-    letters: ["B", "A", "H", "R", "A", "I", "N"],
-    hint: "Name of city in GCC.",
+    category: "Fruits",
+    wordGuess: "MELON",
+    hint: "Sweet with high water content.",
+  },
+  {
+    category: "Countries",
+    wordGuess: "EGYPT",
+    hint: "It has many pyramids.",
   },
 ]
 
@@ -109,9 +109,10 @@ for (let i = 0; i < allLetter.length; i++) {
   newLetter.innerText = allLetter[i]
   document.querySelector(".keyboard").appendChild(newLetter)
 }
+
 const keyboard = document.querySelectorAll(".letter")
 let randomWord = word[Math.floor(Math.random() * word.length)]
-let wordLetter = randomWord.letters
+let wordLetter = randomWord.wordGuess
 
 /////////////// Functions
 const addNewBox = () => {
@@ -122,6 +123,15 @@ const addNewBox = () => {
     document.querySelector(".boxes").appendChild(newBox)
   }
   boxLetter = document.querySelectorAll(".box")
+}
+
+const showTimer = () => {
+  let sMin = 1
+  let time = sMin * 60
+  let sec = time % 60
+  sec = sec < 10 ? "0" + sec : sec
+  console.log(`${sec}`)
+  time++
 }
 
 addNewBox()
@@ -137,7 +147,9 @@ const selectLetter = (index) => {
         if (found && !clickedLetter.includes(letterKeyboard)) {
           const correct = (keyboard[index].innerText = "✔️")
           clickedLetter.push(correct)
-          console.log(clickedLetter)
+          if (correct) {
+            showScore.innerText = `Score: ${score++}`
+          }
         }
       }
     }
@@ -166,11 +178,6 @@ const clickReset = () => {
   }
   console.log(clickedLetter)
 }
-// check if word similar what add in variable
-// increment the score if guess correct and move to other round
-// timer is less from 1min to 0
-// display the sentence for hint
-// draw the man if choose wrong letter
 
 /////////////// Events
 for (let i = 0; i < keyboard.length; i++) {
