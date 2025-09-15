@@ -1,5 +1,6 @@
 /////////////// Global variable
 let score = 1
+let timerStart = 60
 let countWrong = 0
 const clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
@@ -7,7 +8,7 @@ let imageDraw = document.querySelector(".platform")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
-const showScore = document.querySelector(".score")
+const scoreDiv = document.querySelector(".score")
 const imgList = [
   {
     src: "./assets/Face.png",
@@ -126,13 +127,15 @@ const addNewBox = () => {
 }
 
 const showTimer = () => {
-  let sMin = 1
-  let time = sMin * 60
-  let sec = time % 60
-  sec = sec < 10 ? "0" + sec : sec
-  console.log(`${sec}`)
-  time++
+  if (timerStart > 0) {
+    document.querySelector(".timer").innerText = `Timer: ${timerStart}`
+    timerStart--
+  } else {
+    document.querySelector(".timer").innerText = `Timer: 0`
+  }
 }
+
+setInterval(showTimer, 1000)
 
 addNewBox()
 const selectLetter = (index) => {
@@ -148,7 +151,7 @@ const selectLetter = (index) => {
           const correct = (keyboard[index].innerText = "✔️")
           clickedLetter.push(correct)
           if (correct) {
-            showScore.innerText = `Score: ${score++}`
+            scoreDiv.innerText = `Score: ${score++}`
           }
         }
       }
