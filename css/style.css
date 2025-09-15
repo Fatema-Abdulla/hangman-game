@@ -1,9 +1,11 @@
-body {
-  margin: 0;
-  padding: 0;
+html {
   background-image: url("/assets/bg-game.png");
   background-size: 100%;
   background-repeat: no-repeat;
+}
+body {
+  margin: 0;
+  padding: 0;
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
@@ -65,6 +67,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 18px;
+  font-weight: 800;
   color: #004030;
 }
 
@@ -99,13 +102,16 @@ body {
 }
 
 .boxes .box {
-  width: 30px;
-  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
   background-color: rgba(249, 122, 0, 0.36);
   border: 1px solid #f97a00;
   position: relative;
   top: -100px;
-  text-align: center;
 }
 
 .keyboard {
@@ -120,7 +126,6 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-items: center;
   background-color: #fed16a;
   border-radius: 5px;
   width: 30px;
@@ -128,4 +133,31 @@ body {
   text-align: center;
   padding-top: 5px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.buttons {
+  margin-bottom: 10px;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 450px;
+  height: 300px;
+  background-color: #f6b488;
+  border-radius: 8px;
+  position: absolute;
+  top: 150px;
+  left: 450px;
+  z-index: 1;
+  font-size: 40px;
+}
+
+.banner a {
+  text-decoration: none;
+  color: #004030;
+  font-size: 20px;
 }

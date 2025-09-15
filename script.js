@@ -1,6 +1,6 @@
 /////////////// Global variable
 let score = 1
-let timerStart = 60
+let timerStart = 59
 let countWrong = 0
 const clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
@@ -9,6 +9,7 @@ const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
 const scoreDiv = document.querySelector(".score")
+const timerDiv = document.querySelector(".timer")
 const imgList = [
   {
     src: "./assets/Face.png",
@@ -130,6 +131,7 @@ const keyboard = document.querySelectorAll(".letter")
 let randomWord = word[Math.floor(Math.random() * word.length)]
 let wordLetter = randomWord.wordGuess
 
+document.querySelector(".category").innerText = randomWord.category
 /////////////// Functions
 const addNewBox = () => {
   const needNewBox = wordLetter.length - boxLetter.length
@@ -143,14 +145,14 @@ const addNewBox = () => {
 
 const showTimer = () => {
   if (timerStart > 0) {
-    document.querySelector(".timer").innerText = `Timer: ${timerStart}`
+    timerDiv.innerText = `Timer: ${timerStart}`
     timerStart--
   } else {
-    document.querySelector(".timer").innerText = `Timer: 0`
+    timerDiv.innerText = `Timer: 0`
   }
 }
 
-setInterval(showTimer, 1000)
+const times = setInterval(showTimer, 1000)
 
 addNewBox()
 const selectLetter = (index) => {
@@ -180,6 +182,9 @@ const selectLetter = (index) => {
       imageDraw.setAttribute("alt", imgList[countWrong].alt)
       countWrong++
     }
+    if (countWrong === 8) {
+      stopGame()
+    }
   }
 }
 
@@ -195,6 +200,20 @@ const clickReset = () => {
     clickedLetter.pop()
   }
   console.log(clickedLetter)
+}
+
+const stopGame = () => {
+  clearInterval(times)
+
+  const newBanner = document.createElement("div")
+  newBanner.setAttribute("class", "banner")
+  newBanner.innerText = "Game Over!"
+  document.querySelector(".category").appendChild(newBanner)
+
+  const playAgain = document.createElement("a")
+  playAgain.setAttribute("href", "./index.html")
+  playAgain.innerText = "Back"
+  newBanner.appendChild(playAgain)
 }
 
 /////////////// Events
