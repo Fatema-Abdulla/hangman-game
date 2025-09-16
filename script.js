@@ -1,6 +1,7 @@
 /////////////// Global variable
 let score = 0
 let timerStart = 59
+let round = 1
 let countWrong = 0
 let countClick = 0
 let isGameOver = true
@@ -14,6 +15,7 @@ const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
 const scoreDiv = document.querySelector(".score")
 const timerDiv = document.querySelector(".timer")
+const roundDiv = document.querySelector(".round")
 const imgList = [
   {
     src: "./assets/Face.png",
@@ -125,6 +127,8 @@ const word = [
 ]
 
 for (let i = 0; i < allLetter.length; i++) {
+  document.querySelector(".boxes").innerHTML = ""
+
   const newLetter = document.createElement("span")
   newLetter.setAttribute("class", "letter")
   newLetter.innerText = allLetter[i]
@@ -138,8 +142,7 @@ let wordLetter = randomWord.wordGuess
 document.querySelector(".category").innerText = randomWord.category
 /////////////// Functions
 const addNewBox = () => {
-  const needNewBox = wordLetter.length - boxLetter.length
-  for (let i = 0; i < needNewBox; i++) {
+  for (let i = 0; i < wordLetter.length; i++) {
     const newBox = document.createElement("span")
     newBox.setAttribute("class", "box")
     document.querySelector(".boxes").appendChild(newBox)
@@ -149,7 +152,7 @@ const addNewBox = () => {
 
 const showTimer = () => {
   if (timerStart >= 0) {
-    timerDiv.innerText = `Timer: ${timerStart}`
+    timerDiv.innerText = `⌛Timer: ${timerStart}`
     timerStart--
   } else {
     isGameOver
@@ -157,7 +160,7 @@ const showTimer = () => {
   }
 }
 
-const times = setInterval(showTimer, 1000)
+let times = setInterval(showTimer, 1000)
 
 addNewBox()
 const clickLetter = (index) => {
@@ -183,9 +186,13 @@ const clickLetter = (index) => {
     }
     if (countFilledBox === boxLetter.length) {
       score += 1
+      scoreDiv.innerText = `🥇Score: ${score}`
       isGameOver = false
-      scoreDiv.innerText = `Score: ${score}`
-      stopGame()
+      if (score === 3 && !isGameOver) {
+        stopGame()
+        return
+      }
+      newRound()
     }
   }
   if (!found && !clickedLetter.includes(letterKeyboard)) {
@@ -205,11 +212,55 @@ const clickLetter = (index) => {
 const displayHint = () => {
   let hintForWord = randomWord.hint
   hintBox.innerText = hintForWord
+  hintBox.style.opacity = 1
 }
 
 const clickReset = () => {
+  newRound()
+
+  score = 0
+  scoreDiv.innerText = `🥇Score: ${score}`
+  round = 1
+  roundDiv.innerText = `🔢Round ${round}`
+  imageDraw.setAttribute("src", "./assets/platform-empty.png")
+  imageDraw.setAttribute("alt", "gallows-platform")
+  keyboardContainer.style.opacity = 1
+  hintButton.style.opacity = 1
+  hintBox.style.opacity = 0
+}
+
+const stopGame = () => {
+  clearInterval(times)
+  keyboardContainer.style.opacity = 0
+  hintButton.style.opacity = 0
+  resetButton.style.opacity = 0
+  hintBox.style.opacity = 0
+
+  const newBanner = document.createElement("div")
+  newBanner.setAttribute("class", "banner")
+  const playAgain = document.createElement("a")
+  if (isGameOver) {
+    newBanner.innerText = "Game Over!"
+    playAgain.setAttribute("href", "./index.html")
+    playAgain.innerText = "Back"
+  } else if (!isGameOver) {
+    newBanner.innerText = "Win!!"
+    playAgain.setAttribute("href", "./index.html")
+    playAgain.innerText = "Back"
+  }
+  document.querySelector(".category").appendChild(newBanner)
+  newBanner.appendChild(playAgain)
+}
+
+const newRound = () => {
+  clearInterval(times)
+  times = setInterval(showTimer, 1000)
   timerStart = 60
-  scoreDiv.innerText = "Score: 0"
+  isGameOver = true
+  round++
+  document.querySelector(".boxes").innerHTML = ""
+  scoreDiv.innerText = `🥇Score: ${score}`
+  roundDiv.innerText = `🔢Round ${round}`
   for (let i = 0; i < boxLetter.length; i++) {
     boxLetter[i].innerText = ""
   }
@@ -220,25 +271,12 @@ const clickReset = () => {
   imageDraw.setAttribute("alt", "gallows-platform")
   countWrong = 0
   clickedLetter = []
-}
+  hintBox.style.opacity = 0
 
-const stopGame = () => {
-  clearInterval(times)
-  keyboardContainer.style.display = "none"
-
-  const newBanner = document.createElement("div")
-  newBanner.setAttribute("class", "banner")
-  if (isGameOver) {
-    newBanner.innerText = "Game Over!"
-  } else if (!isGameOver) {
-    newBanner.innerText = "Win!! Go to new level"
-  }
-  document.querySelector(".category").appendChild(newBanner)
-
-  const playAgain = document.createElement("a")
-  playAgain.setAttribute("href", "./index.html")
-  playAgain.innerText = "Back"
-  newBanner.appendChild(playAgain)
+  randomWord = word[Math.floor(Math.random() * word.length)]
+  wordLetter = randomWord.wordGuess
+  addNewBox()
+  document.querySelector(".category").innerText = randomWord.category
 }
 
 /////////////// Events
