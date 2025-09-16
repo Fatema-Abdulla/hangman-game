@@ -2,9 +2,14 @@
 let score = 1
 let timerStart = 59
 let countWrong = 0
-const clickedLetter = []
+let isGameOver = true
+let countClick = 0
+let letterKeyboard = ""
+let clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
 let imageDraw = document.querySelector(".platform")
+let keyboardContainer = document.querySelector(".keyboard")
+
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
@@ -124,7 +129,7 @@ for (let i = 0; i < allLetter.length; i++) {
   const newLetter = document.createElement("span")
   newLetter.setAttribute("class", "letter")
   newLetter.innerText = allLetter[i]
-  document.querySelector(".keyboard").appendChild(newLetter)
+  keyboardContainer.appendChild(newLetter)
 }
 
 const keyboard = document.querySelectorAll(".letter")
@@ -155,9 +160,9 @@ const showTimer = () => {
 const times = setInterval(showTimer, 1000)
 
 addNewBox()
-const selectLetter = (index) => {
+const clickLetter = (index) => {
   let found = false
-  const letterKeyboard = keyboard[index].innerText
+  letterKeyboard = keyboard[index].innerText
 
   if (wordLetter.includes(letterKeyboard)) {
     for (let i = 0; i < wordLetter.length; i++) {
@@ -166,9 +171,16 @@ const selectLetter = (index) => {
         found = true
         if (found && !clickedLetter.includes(letterKeyboard)) {
           const correct = (keyboard[index].innerText = "✔️")
-          clickedLetter.push(correct)
+          clickedLetter.push(letterKeyboard)
           if (correct) {
             scoreDiv.innerText = `Score: ${score++}`
+            if (
+              keyboard[index].innerText !== "" &&
+              score > 8 &&
+              isGameOver == false
+            ) {
+              stopGame()
+            }
           }
         }
       }
@@ -176,13 +188,13 @@ const selectLetter = (index) => {
   }
   if (!found && !clickedLetter.includes(letterKeyboard)) {
     const wrong = (keyboard[index].innerText = "❌")
-    clickedLetter.push(wrong)
+    clickedLetter.push(letterKeyboard)
     if (countWrong < imgList.length) {
       imageDraw.setAttribute("src", imgList[countWrong].src)
       imageDraw.setAttribute("alt", imgList[countWrong].alt)
       countWrong++
     }
-    if (countWrong === 8) {
+    if (countWrong === 8 && isGameOver) {
       stopGame()
     }
   }
@@ -193,21 +205,30 @@ const displayHint = () => {
   hintBox.innerText = hintForWord
 }
 
-const clickReset = () => {
-  timer = 0
-  score = 0
-  for (let i = 0; i < clickedLetter; i++) {
-    clickedLetter.pop()
+const clickReset = (index) => {
+  timerStart = 60
+  scoreDiv.innerText = "Score: 0"
+  for (let i = 0; i < boxLetter.length; i++) {
+    boxLetter[i].innerText = ""
   }
-  console.log(clickedLetter)
+  imageDraw.setAttribute("src", "./assets/platform-empty.png")
+  imageDraw.setAttribute("alt", "gallows-platform")
+  countWrong = 0
+  clickedLetter = []
 }
 
 const stopGame = () => {
   clearInterval(times)
+  keyboardContainer.style.display = "none"
 
   const newBanner = document.createElement("div")
   newBanner.setAttribute("class", "banner")
-  newBanner.innerText = "Game Over!"
+  if (isGameOver) {
+    newBanner.innerText = "Game Over!"
+  } else {
+    newBanner.innerText = "Win!!"
+  }
+
   document.querySelector(".category").appendChild(newBanner)
 
   const playAgain = document.createElement("a")
@@ -219,7 +240,7 @@ const stopGame = () => {
 /////////////// Events
 for (let i = 0; i < keyboard.length; i++) {
   keyboard[i].addEventListener("click", () => {
-    selectLetter(i)
+    clickLetter(i)
   })
 }
 
