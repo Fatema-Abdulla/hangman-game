@@ -4,7 +4,6 @@ let timerStart = 59
 let countWrong = 0
 let isGameOver = true
 let countClick = 0
-let letterKeyboard = ""
 let clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
 let imageDraw = document.querySelector(".platform")
@@ -162,7 +161,7 @@ const times = setInterval(showTimer, 1000)
 addNewBox()
 const clickLetter = (index) => {
   let found = false
-  letterKeyboard = keyboard[index].innerText
+  const letterKeyboard = keyboard[index].innerText
 
   if (wordLetter.includes(letterKeyboard)) {
     for (let i = 0; i < wordLetter.length; i++) {
@@ -205,11 +204,14 @@ const displayHint = () => {
   hintBox.innerText = hintForWord
 }
 
-const clickReset = (index) => {
+const clickReset = () => {
   timerStart = 60
   scoreDiv.innerText = "Score: 0"
   for (let i = 0; i < boxLetter.length; i++) {
     boxLetter[i].innerText = ""
+  }
+  for (let j = 0; j < keyboard.length; j++) {
+    keyboard[j].innerText = allLetter[j]
   }
   imageDraw.setAttribute("src", "./assets/platform-empty.png")
   imageDraw.setAttribute("alt", "gallows-platform")
