@@ -1,9 +1,9 @@
 /////////////// Global variable
-let score = 1
+let score = 0
 let timerStart = 59
 let countWrong = 0
-let isGameOver = true
 let countClick = 0
+let isGameOver = true
 let clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
 let imageDraw = document.querySelector(".platform")
@@ -148,11 +148,12 @@ const addNewBox = () => {
 }
 
 const showTimer = () => {
-  if (timerStart > 0) {
+  if (timerStart >= 0) {
     timerDiv.innerText = `Timer: ${timerStart}`
     timerStart--
   } else {
-    timerDiv.innerText = `Timer: 0`
+    isGameOver
+    stopGame()
   }
 }
 
@@ -169,24 +170,26 @@ const clickLetter = (index) => {
         boxLetter[i].innerText = letterKeyboard
         found = true
         if (found && !clickedLetter.includes(letterKeyboard)) {
-          const correct = (keyboard[index].innerText = "✔️")
+          keyboard[index].innerText = "✔️"
           clickedLetter.push(letterKeyboard)
-          if (correct) {
-            scoreDiv.innerText = `Score: ${score++}`
-            if (
-              keyboard[index].innerText !== "" &&
-              score > 8 &&
-              isGameOver == false
-            ) {
-              stopGame()
-            }
-          }
         }
       }
     }
+    let countFilledBox = 0
+    for (let k = 0; k < boxLetter.length; k++) {
+      if (boxLetter[k].innerText !== "") {
+        countFilledBox++
+      }
+    }
+    if (countFilledBox === boxLetter.length) {
+      score += 1
+      isGameOver = false
+      scoreDiv.innerText = `Score: ${score}`
+      stopGame()
+    }
   }
   if (!found && !clickedLetter.includes(letterKeyboard)) {
-    const wrong = (keyboard[index].innerText = "❌")
+    keyboard[index].innerText = "❌"
     clickedLetter.push(letterKeyboard)
     if (countWrong < imgList.length) {
       imageDraw.setAttribute("src", imgList[countWrong].src)
@@ -227,10 +230,9 @@ const stopGame = () => {
   newBanner.setAttribute("class", "banner")
   if (isGameOver) {
     newBanner.innerText = "Game Over!"
-  } else {
-    newBanner.innerText = "Win!!"
+  } else if (!isGameOver) {
+    newBanner.innerText = "Win!! Go to new level"
   }
-
   document.querySelector(".category").appendChild(newBanner)
 
   const playAgain = document.createElement("a")

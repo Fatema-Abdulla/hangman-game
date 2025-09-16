@@ -136,7 +136,40 @@ body {
 }
 
 .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: 10px;
+  margin-top: -15px;
+}
+
+.display-hint {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hint-btn {
+  background-color: #7b4019;
+  border: none;
+  color: white;
+  width: 60px;
+  height: 30px;
+  font-size: 17px;
+}
+
+.hint-btn:hover {
+  cursor: pointer;
+}
+
+.hint-sentence {
+  font-size: 17px;
+  margin-left: 4px;
+  height: 28px;
+  width: 360px;
+  padding-top: 10px;
 }
 
 .banner {
