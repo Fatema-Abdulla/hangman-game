@@ -3,6 +3,7 @@ html {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -180,7 +181,7 @@ body {
   display: grid;
   grid-template-columns: repeat(9, 2fr);
   gap: 20px;
-  cursor: pointer;
+  cursor: url("/assets/rounded-cursor.png"), pointer;
 }
 
 .keyboard span {
@@ -202,14 +203,38 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 15px;
+  width: 610px;
+  height: 350px;
+  background-image: url("/assets/banner-winner.png");
+  border-radius: 8px;
+  position: absolute;
+  top: 140px;
+  left: 370px;
+  z-index: 1;
+  font-size: 70px;
+}
+
+.banner .winner {
+  position: relative;
+  top: 70px;
+  left: 8px;
+  color: #004030;
+}
+
+.wrong {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
-  width: 450px;
-  height: 300px;
-  background-image: url("/assets/winner.png");
+  width: 540px;
+  height: 313px;
+  background-image: url("/assets/banner-stopgame.png");
   border-radius: 8px;
   position: absolute;
   top: 150px;
-  left: 450px;
+  left: 400px;
   z-index: 1;
   font-size: 40px;
 }
@@ -218,4 +243,6 @@ body {
   text-decoration: none;
   color: #004030;
   font-size: 20px;
+  position: relative;
+  top: -10px;
 }

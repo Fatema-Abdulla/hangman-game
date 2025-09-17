@@ -239,16 +239,18 @@ const stopGame = () => {
   const newBanner = document.createElement("div")
   newBanner.setAttribute("class", "banner")
   const playAgain = document.createElement("a")
+  const textBanner = document.createElement("p")
   if (isGameOver) {
-    newBanner.innerText = "Game Over!"
-    playAgain.setAttribute("href", "./index.html")
-    playAgain.innerText = "Back"
+    newBanner.classList.add("wrong")
+    textBanner.innerText = "Game Over!"
   } else if (!isGameOver) {
-    newBanner.innerText = "Win!!"
-    playAgain.setAttribute("href", "./index.html")
-    playAgain.innerText = "Back"
+    textBanner.classList.add("winner")
+    textBanner.innerText = "Win!!"
   }
+  playAgain.setAttribute("href", "./index.html")
+  playAgain.innerText = "Back"
   document.querySelector(".category").appendChild(newBanner)
+  newBanner.appendChild(textBanner)
   newBanner.appendChild(playAgain)
 }
 
