@@ -9,7 +9,7 @@ let clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
 let imageDraw = document.querySelector(".platform")
 let keyboardContainer = document.querySelector(".keyboard")
-let audioGame = new Audio("./music/game.mp3")
+let audioGame = new Audio("./music/gamesound.mp3")
 let gameOver = new Audio("./music/gameover.mp3")
 let audioWin = new Audio("./music/win.mp3")
 
@@ -194,10 +194,10 @@ const showTimer = () => {
     stopGame()
   }
 }
-
 let times = setInterval(showTimer, 1000)
 
 addNewBox()
+
 const clickLetter = (index) => {
   let found = false
   const letterKeyboard = keyboard[index].innerText
@@ -256,6 +256,7 @@ const clickReset = () => {
   score = 0
   scoreDiv.innerText = `🥇Score: ${score}`
   round = 1
+  countClick = 0
   roundDiv.innerText = `🔢Round ${round}`
   imageDraw.setAttribute("src", "./assets/platform-empty.png")
   imageDraw.setAttribute("alt", "gallows-platform")
