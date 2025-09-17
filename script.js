@@ -9,6 +9,9 @@ let clickedLetter = []
 let boxLetter = document.querySelectorAll(".box")
 let imageDraw = document.querySelector(".platform")
 let keyboardContainer = document.querySelector(".keyboard")
+let audioGame = new Audio("./music/game.mp3")
+let gameOver = new Audio("./music/gameover.mp3")
+let audioWin = new Audio("./music/win.mp3")
 
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
@@ -170,6 +173,8 @@ let randomWord = word[Math.floor(Math.random() * word.length)]
 let wordLetter = randomWord.wordGuess
 
 document.querySelector(".category").innerText = randomWord.category
+audioGame.play()
+audioGame.loop = true
 /////////////// Functions
 const addNewBox = () => {
   for (let i = 0; i < wordLetter.length; i++) {
@@ -273,9 +278,13 @@ const stopGame = () => {
   if (isGameOver) {
     newBanner.classList.add("wrong")
     textBanner.innerText = "Game Over!"
+    gameOver.play()
+    audioGame.pause()
   } else if (!isGameOver) {
     textBanner.classList.add("winner")
     textBanner.innerText = "Win!!"
+    audioWin.play()
+    audioGame.pause()
   }
   playAgain.setAttribute("href", "./index.html")
   playAgain.innerText = "Back to home"
@@ -287,6 +296,9 @@ const stopGame = () => {
 const newRound = () => {
   clearInterval(times)
   times = setInterval(showTimer, 1000)
+  audioGame.pause()
+  audioGame.play()
+  audioGame.loop = true
   timerStart = 60
   isGameOver = true
   round++
@@ -318,5 +330,14 @@ for (let i = 0; i < keyboard.length; i++) {
   })
 }
 
-hintButton.addEventListener("click", displayHint)
+hintButton.addEventListener("click", () => {
+  countClick++
+
+  if (countClick === 1) {
+    displayHint()
+  } else {
+    displayHint()
+    hintBox.innerText = "No hint :("
+  }
+})
 resetButton.addEventListener("click", clickReset)
