@@ -124,6 +124,36 @@ const word = [
     wordGuess: "LION",
     hint: "King in the forest.",
   },
+  {
+    category: "Fruits",
+    wordGuess: "APPLE",
+    hint: "If you take it, do not visit a doctor.",
+  },
+  {
+    category: "Countries",
+    wordGuess: "BAHRAIN",
+    hint: "It owns sweets and matai.",
+  },
+  {
+    category: "Animals",
+    wordGuess: "DOLPHIN",
+    hint: "It lives in the sea and is very intelligent.",
+  },
+  {
+    category: "Fruits",
+    wordGuess: "STRAWBERRY",
+    hint: "It is red in color and its shape is like a heart.",
+  },
+  {
+    category: "Countries",
+    wordGuess: "BAHRAIN",
+    hint: "It owns halwa and matai.",
+  },
+  {
+    category: "Animals",
+    wordGuess: "HORSE",
+    hint: "The tame and fastest animal on land.",
+  },
 ]
 
 for (let i = 0; i < allLetter.length; i++) {
@@ -248,7 +278,7 @@ const stopGame = () => {
     textBanner.innerText = "Win!!"
   }
   playAgain.setAttribute("href", "./index.html")
-  playAgain.innerText = "Back"
+  playAgain.innerText = "Back to home"
   document.querySelector(".category").appendChild(newBanner)
   newBanner.appendChild(textBanner)
   newBanner.appendChild(playAgain)

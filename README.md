@@ -28,3 +28,4 @@ The project has been uploaded and published; you can view the game [here](#).
 ##### [Math.random()](https://stackoverflow.com/questions/1516695/js-math-random-for-array)
 ##### [setInterval()](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown)
 ##### [clearInterval()](https://www.w3schools.com/js/js_timing.asp)
+##### [create cursors](https://www.svgbackgrounds.com/elements/custom-css-cursors/)
