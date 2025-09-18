@@ -175,6 +175,7 @@ let wordLetter = randomWord.wordGuess
 document.querySelector(".category").innerText = randomWord.category
 audioGame.play()
 audioGame.loop = true
+
 /////////////// Functions
 const addNewBox = () => {
   for (let i = 0; i < wordLetter.length; i++) {
@@ -222,8 +223,8 @@ const clickLetter = (index) => {
     if (countFilledBox === boxLetter.length) {
       score += 1
       scoreDiv.innerText = `🥇Score: ${score}`
-      isGameOver = false
-      if (score === 3 && !isGameOver) {
+      if (score === 3) {
+        isGameOver = false
         stopGame()
         return
       }
@@ -238,7 +239,8 @@ const clickLetter = (index) => {
       imageDraw.setAttribute("alt", imgList[countWrong].alt)
       countWrong++
     }
-    if (countWrong === 8 && isGameOver) {
+    if (countWrong === 8) {
+      isGameOver
       stopGame()
     }
   }
@@ -298,8 +300,10 @@ const newRound = () => {
   clearInterval(times)
   times = setInterval(showTimer, 1000)
   audioGame.pause()
+  audioGame.currentTime = 0
   audioGame.play()
   audioGame.loop = true
+
   timerStart = 60
   isGameOver = true
   round++
