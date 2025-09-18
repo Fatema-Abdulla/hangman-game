@@ -16,11 +16,17 @@ The Hangman game includes different words from the names of fruits, animals, and
 ***
 #### ***Get Started***
 
-The project has been uploaded and published; you can view the game [here](https://heavy-plantation.surge.sh/).
+The project has been uploaded and published; you can view the game [here](https://abnormal-fear.surge.sh/).
 ***
 #### ***ScreenShots***
 ##### Hangman Game
 ![hangman](./assets/Start-Game.png)
+
+***
+#### ***Future features***
+* Increase number of round.
+* Increase number of words and category of words.
+* Add 3 level easy, medium, difficult.
 
 ***
 #### ***Credits***
