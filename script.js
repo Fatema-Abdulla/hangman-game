@@ -1,4 +1,4 @@
-/////////////// Global variable
+// Global variable
 let score = 0
 let timerStart = 59
 let round = 1
@@ -176,7 +176,7 @@ document.querySelector(".category").innerText = randomWord.category
 audioGame.play()
 audioGame.loop = true
 
-/////////////// Functions
+// Functions
 const addNewBox = () => {
   for (let i = 0; i < wordLetter.length; i++) {
     const newBox = document.createElement("span")
@@ -328,7 +328,7 @@ const newRound = () => {
   document.querySelector(".category").innerText = randomWord.category
 }
 
-/////////////// Events
+// Events
 for (let i = 0; i < keyboard.length; i++) {
   keyboard[i].addEventListener("click", () => {
     clickLetter(i)
