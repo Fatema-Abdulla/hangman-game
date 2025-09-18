@@ -1,5 +1,5 @@
 # Hangman Game
-## Date: 9/11/2025
+## Date: 9/17/2025
 ### By: Fatema Hussain
 **[GitHub](https://github.com/Fatema-Abdulla) | [LinkedIn](https://www.linkedin.com/in/fatema-abdulla-bh)**
 ***
@@ -16,10 +16,9 @@ The Hangman game includes different words from the names of fruits, animals, and
 ***
 #### ***Get Started***
 
-The project has been uploaded and published; you can view the game [here](https://abnormal-fear.surge.sh/).
+The game has been uploaded and published; you can view the game [here](https://abnormal-fear.surge.sh/).
 ***
 #### ***ScreenShots***
-##### Hangman Game
 ![hangman](./assets/Start-Game.png)
 
 ***
