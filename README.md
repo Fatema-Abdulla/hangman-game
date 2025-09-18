@@ -32,7 +32,7 @@ The game has been uploaded and published; you can view the game [here](https://a
 
 ##### [Math.random()](https://stackoverflow.com/questions/1516695/js-math-random-for-array)
 ##### [setInterval()](https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown)
-##### [clearInterval()](https://www.w3schools.com/js/js_timing.asp)
+##### [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/Window/clearInterval)
 ##### [Create cursors](https://www.svgbackgrounds.com/elements/custom-css-cursors/)
 ##### [Add audio](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio)
 ##### [Stop audio](https://stackoverflow.com/questions/14834520/html5-audio-stop-function)

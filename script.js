@@ -1,4 +1,4 @@
-// Global variable
+///// Global variable
 let score = 0
 let timerStart = 59
 let round = 1
@@ -19,6 +19,7 @@ const hintBox = document.querySelector(".hint-sentence")
 const scoreDiv = document.querySelector(".score")
 const timerDiv = document.querySelector(".timer")
 const roundDiv = document.querySelector(".round")
+// image for draw man
 const imgList = [
   {
     src: "./assets/Face.png",
@@ -53,6 +54,8 @@ const imgList = [
     alt: "eight wrong",
   },
 ]
+
+// letter on keyboard
 const allLetter = [
   "A",
   "B",
@@ -81,6 +84,8 @@ const allLetter = [
   "Y",
   "Z",
 ]
+
+// word guess
 const word = [
   {
     category: "Fruits",
@@ -159,6 +164,7 @@ const word = [
   },
 ]
 
+//display the letter in array
 for (let i = 0; i < allLetter.length; i++) {
   document.querySelector(".boxes").innerHTML = ""
 
@@ -172,12 +178,12 @@ const keyboard = document.querySelectorAll(".letter")
 //Random words appear
 let randomWord = word[Math.floor(Math.random() * word.length)]
 let wordLetter = randomWord.wordGuess
-
 document.querySelector(".category").innerText = randomWord.category
-audioGame.play()
+
+audioGame.play() // add audio
 audioGame.loop = true
 
-// Functions
+///// Functions
 const addNewBox = () => {
   for (let i = 0; i < wordLetter.length; i++) {
     const newBox = document.createElement("span")
@@ -198,7 +204,7 @@ const showTimer = () => {
 }
 let times = setInterval(showTimer, 1000)
 
-addNewBox()
+addNewBox() // I call the function to change the number of box before click the letter
 
 const clickLetter = (index) => {
   let found = false
@@ -254,7 +260,7 @@ const displayHint = () => {
 }
 
 const clickReset = () => {
-  newRound()
+  newRound() // I call the function newRound to avoid repeating the code twice
 
   score = 0
   scoreDiv.innerText = `🥇Score: ${score}`
@@ -329,7 +335,7 @@ const newRound = () => {
   document.querySelector(".category").innerText = randomWord.category
 }
 
-// Events
+///// Events
 for (let i = 0; i < keyboard.length; i++) {
   keyboard[i].addEventListener("click", () => {
     clickLetter(i)
@@ -339,6 +345,7 @@ for (let i = 0; i < keyboard.length; i++) {
 hintButton.addEventListener("click", () => {
   countClick++
 
+  // not display hint more then one in game
   if (countClick === 1) {
     displayHint()
   } else {
@@ -346,4 +353,5 @@ hintButton.addEventListener("click", () => {
     hintBox.innerText = "No hint :("
   }
 })
+
 resetButton.addEventListener("click", clickReset)
