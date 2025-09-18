@@ -169,6 +169,7 @@ for (let i = 0; i < allLetter.length; i++) {
 }
 
 const keyboard = document.querySelectorAll(".letter")
+//Random words appear
 let randomWord = word[Math.floor(Math.random() * word.length)]
 let wordLetter = randomWord.wordGuess
 
