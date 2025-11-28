@@ -1,5 +1,5 @@
 html {
-  background-image: url("/assets/bg-game.png");
+  background-image: url("../assets/bg-game.png");
   background-size: 100%;
   background-repeat: no-repeat;
 }
