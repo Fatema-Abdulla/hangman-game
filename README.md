@@ -18,8 +18,11 @@ The Hangman game features a wide variety of words from multiple categories, offe
 
 The game has been uploaded and published; you can view the game [here](https://abnormal-fear.surge.sh/).
 ***
-#### ***ScreenShots***
-![hangman](./assets/Start-Game.png)
+#### ***WireFrame***
+##### Home page
+![Start game](./assets/Start-Game.png)
+##### Play Game
+![Play hangman](./assets/play-game.png)
 
 ***
 #### ***Future features***
