@@ -5,7 +5,7 @@
 ***
 #### ***Description***
 
-The Hangman game includes different words from the names of fruits, animals, and countries. Each player has a chance to guess the words by selecting the correct letters within one minute for each round. Correctly guessing the words increases your scores, but failing to do so will result in a loss.
+The Hangman game features a wide variety of words from multiple categories, offering a more diverse and exciting challenge. Players can choose between Easy and Hard modes. In Easy mode, the player has 4 minutes and 8 hints, while in Hard mode, the player is given 1 minute and 30 seconds with only 5 hints available.
 ***
 #### ***Technologies Used***
 
@@ -23,9 +23,9 @@ The game has been uploaded and published; you can view the game [here](https://a
 
 ***
 #### ***Future features***
-* Increase number of round.
-* Increase number of words and category of words.
-* Add 3 level easy, medium, difficult.
+- [x] Increase number of round.
+- [x] Increase number of words and category of words.
+- [ ] Add 3 level easy, medium, hard.
 
 ***
 #### ***Credits***
@@ -36,3 +36,5 @@ The game has been uploaded and published; you can view the game [here](https://a
 ##### [Create cursors](https://www.svgbackgrounds.com/elements/custom-css-cursors/)
 ##### [Add audio](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio)
 ##### [Stop audio](https://stackoverflow.com/questions/14834520/html5-audio-stop-function)
+##### [Mute audio](https://www.w3schools.com/jsref/prop_audio_muted.asp)
+##### [Module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules?utm_source=chatgpt.com)

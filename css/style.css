@@ -35,6 +35,12 @@ body {
   top: -20px;
 }
 
+.action-button{
+  display: flex;
+  gap: 10px;
+  margin-top: -12px;
+}
+
 .play-game {
   display: flex;
   justify-content: center;
@@ -51,7 +57,14 @@ body {
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
-.play-game a {
+.play-game:hover {
+  background-color: #fff;
+  color: #f97a00;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.hyperlink-game {
   text-decoration: none;
   color: white;
 }
@@ -74,7 +87,7 @@ body {
   left: -60px;
 }
 
-.hint-btn {
+.hint-btn{
   background-color: #f97a00;
   border: none;
   color: white;
@@ -82,6 +95,36 @@ body {
   height: 30px;
   font-size: 17px;
   cursor: pointer;
+}
+
+.hint-btn:hover{
+  box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mute-btn {
+  background-color: #fed16a;
+  border: none;
+  width: 40px;
+  height: 30px;
+  font-size: 17px;
+  cursor: pointer;
+  margin-right: 8px;
+  border-radius: 25px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 30px;
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 8px;
+  border-radius: 25px;
+}
+
+.off{
+  width: 30px;
 }
 
 .hint-sentence {

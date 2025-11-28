@@ -1,6 +1,6 @@
 ///// Global variable
 let score = 0
-let timerStart = 59
+let timerStart = 239
 let round = 1
 let countWrong = 0
 let countClick = 0
@@ -13,12 +13,17 @@ let audioGame = new Audio("./music/gamesound.mp3")
 let gameOver = new Audio("./music/gameover.mp3")
 let audioWin = new Audio("./music/win.mp3")
 
+const muteButton = document.querySelector(".mute-btn")
 const resetButton = document.querySelector(".reset-btn")
 const hintButton = document.querySelector(".hint-btn")
 const hintBox = document.querySelector(".hint-sentence")
 const scoreDiv = document.querySelector(".score")
 const timerDiv = document.querySelector(".timer")
 const roundDiv = document.querySelector(".round")
+
+// word guess
+import { word } from "./words.js"
+
 // image for draw man
 const imgList = [
   {
@@ -85,85 +90,6 @@ const allLetter = [
   "Z",
 ]
 
-// word guess
-const word = [
-  {
-    category: "Fruits",
-    wordGuess: "BANANA",
-    hint: "This yellow curved and take energy.",
-  },
-  {
-    category: "Countries",
-    wordGuess: "ITALY",
-    hint: "First country to make pizza.",
-  },
-  {
-    category: "Animals",
-    wordGuess: "ELEPHANT",
-    hint: "The largest animal on land.",
-  },
-  {
-    category: "Fruits",
-    wordGuess: "ORANGE",
-    hint: "Have many vitamin C if eat it.",
-  },
-  {
-    category: "Countries",
-    wordGuess: "OMAN",
-    hint: "A GCC with natural landscapes and mountains.",
-  },
-  {
-    category: "Animals",
-    wordGuess: "MONKEY",
-    hint: "It's eat a lot of banana.",
-  },
-  {
-    category: "Fruits",
-    wordGuess: "MELON",
-    hint: "Sweet with high water content.",
-  },
-  {
-    category: "Countries",
-    wordGuess: "EGYPT",
-    hint: "It has many pyramids.",
-  },
-  {
-    category: "Animals",
-    wordGuess: "LION",
-    hint: "King in the forest.",
-  },
-  {
-    category: "Fruits",
-    wordGuess: "APPLE",
-    hint: "If you take it, do not visit a doctor.",
-  },
-  {
-    category: "Countries",
-    wordGuess: "BAHRAIN",
-    hint: "It owns sweets and matai.",
-  },
-  {
-    category: "Animals",
-    wordGuess: "DOLPHIN",
-    hint: "It lives in the sea and is very intelligent.",
-  },
-  {
-    category: "Fruits",
-    wordGuess: "STRAWBERRY",
-    hint: "It is red in color and its shape is like a heart.",
-  },
-  {
-    category: "Countries",
-    wordGuess: "BAHRAIN",
-    hint: "It owns halwa and matai.",
-  },
-  {
-    category: "Animals",
-    wordGuess: "HORSE",
-    hint: "The tame and fastest animal on land.",
-  },
-]
-
 //display the letter in array
 for (let i = 0; i < allLetter.length; i++) {
   document.querySelector(".boxes").innerHTML = ""
@@ -180,8 +106,7 @@ let randomWord = word[Math.floor(Math.random() * word.length)]
 let wordLetter = randomWord.wordGuess
 document.querySelector(".category").innerText = randomWord.category
 
-audioGame.play() // add audio
-audioGame.loop = true
+audioGame.muted = true
 
 ///// Functions
 const addNewBox = () => {
@@ -230,7 +155,7 @@ const clickLetter = (index) => {
     if (countFilledBox === boxLetter.length) {
       score += 1
       scoreDiv.innerText = `🥇Score: ${score}`
-      if (score === 3) {
+      if (score === 10) {
         isGameOver = false
         stopGame()
         return
@@ -276,10 +201,11 @@ const clickReset = () => {
 
 const stopGame = () => {
   clearInterval(times)
-  keyboardContainer.style.opacity = 0
-  hintButton.style.opacity = 0
-  resetButton.style.opacity = 0
-  hintBox.style.opacity = 0
+  keyboardContainer.style.pointerEvents = "none"
+  hintButton.style.pointerEvents = "none"
+  resetButton.style.pointerEvents = "none"
+  muteButton.style.pointerEvents = "none"
+  hintBox.style.pointerEvents = "none"
 
   const newBanner = document.createElement("div")
   newBanner.setAttribute("class", "banner")
@@ -311,7 +237,7 @@ const newRound = () => {
   audioGame.play()
   audioGame.loop = true
 
-  timerStart = 60
+  timerStart = 240
   isGameOver = true
   round++
   document.querySelector(".boxes").innerHTML = ""
@@ -346,11 +272,24 @@ hintButton.addEventListener("click", () => {
   countClick++
 
   // not display hint more then one in game
-  if (countClick === 1) {
+  if (countClick <= 8) {
     displayHint()
   } else {
     displayHint()
     hintBox.innerText = "No hint :("
+  }
+})
+
+muteButton.addEventListener("click", () => {
+  if (audioGame.muted) {
+    muteButton.innerText = "🔉"
+    audioGame.play()
+    audioGame.muted = false
+    audioGame.loop = true
+  } else {
+    muteButton.innerText = "🔇"
+    audioGame.pause()
+    audioGame.muted = true
   }
 })
 
