@@ -228,7 +228,7 @@ body {
   display: grid;
   grid-template-columns: repeat(9, 2fr);
   gap: 20px;
-  cursor: url("/assets/rounded-cursor.png"), pointer;
+  cursor: url("../assets/rounded-cursor.png"), pointer;
 }
 
 .keyboard span {
