@@ -16,7 +16,7 @@ The Hangman game features a wide variety of words from multiple categories, offe
 ***
 #### ***Get Started***
 
-The game has been uploaded and published; you can view the game [here](https://abnormal-fear.surge.sh/).
+The game has been uploaded and published; you can view the game [here](https://fatema-abdulla.github.io/hangman-game/).
 ***
 #### ***WireFrame***
 ##### Home page
