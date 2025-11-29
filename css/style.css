@@ -250,7 +250,7 @@ body {
   gap: 15px;
   width: 605px;
   height: 350px;
-  background-image: url("/assets/banner-winner.png");
+  background-image: url("../assets/banner-winner.png");
   border-radius: 8px;
   position: absolute;
   top: 140px;
@@ -274,7 +274,7 @@ body {
   gap: 30px;
   width: 600px;
   height: 350px;
-  background-image: url("/assets/banner-gameover.png");
+  background-image: url("../assets/banner-gameover.png");
   border-radius: 8px;
   position: absolute;
   top: 140px;
