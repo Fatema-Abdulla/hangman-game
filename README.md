@@ -1,4 +1,4 @@
-# Hangman Game
+# Guessy - Hangman Game
 ## Date: 9/17/2025
 ### By: Fatema Hussain
 **[GitHub](https://github.com/Fatema-Abdulla) | [LinkedIn](https://www.linkedin.com/in/fatema-abdulla-bh)**
@@ -29,6 +29,7 @@ The game has been uploaded and published; you can view the game [here](https://f
 - [x] Increase number of round.
 - [x] Increase number of words and category of words.
 - [ ] Add 3 level easy, medium, hard.
+- [ ] Dark mode.
 
 ***
 #### ***Credits***
