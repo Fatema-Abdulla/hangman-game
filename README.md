@@ -1,4 +1,4 @@
-# Guessy - Hangman Game
+# Guessor - Hangman Game
 ## Date: 9/17/2025
 ### By: Fatema Hussain
 **[GitHub](https://github.com/Fatema-Abdulla) | [LinkedIn](https://www.linkedin.com/in/fatema-abdulla-bh)**
