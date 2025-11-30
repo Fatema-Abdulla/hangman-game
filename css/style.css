@@ -354,6 +354,17 @@ body {
     justify-content: flex-start;
     width: auto;
   }
+
+  .banner,
+  .wrong {
+    width: 520px;
+    height: 305px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 160px;
+    background-size: cover;
+    font-size: 55px;
+  }
 }
 
 /* Tablet portrait / iPad Mini (≤768px) */
@@ -370,6 +381,7 @@ body {
   }
 
   .body-game img {
+    margin-top: 15px;
     width: 550px;
     height: 350px;
   }
@@ -393,6 +405,14 @@ body {
     gap: 5px;
     font-size: 16px;
   }
+
+  .banner,
+  .wrong {
+    width: 455px;
+    height: 265px;
+    top: 180px;
+    font-size: 45px;
+  }
 }
 
 /* Mobile phones (≤576px) */
@@ -409,11 +429,13 @@ body {
   }
 
   .title-game {
+    margin-top: 50px;
     font-size: 32px;
     text-align: center;
   }
 
   .start-game img {
+    margin-top: 45px;
     width: 440px;
     top: -10px;
   }
@@ -421,7 +443,7 @@ body {
   .action-button {
     flex-direction: column;
     gap: 12px;
-    margin-top: 0;
+    margin-top: 45px;
   }
 
   .play-game {
@@ -449,14 +471,24 @@ body {
   }
 
   .buttons {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
+    flex-wrap: wrap;
+    margin-left: -20px;
+    margin-right: 5px;
   }
 
-  .display-hint,
+  .display-hint {
+    flex-direction: row;
+    width: auto;
+    max-width: 50%;
+    justify-content: center;
+  }
+
   .reset-game {
-    width: 100%;
+    width: auto;
+    max-width: 40%;
     justify-content: center;
   }
 
@@ -469,6 +501,26 @@ body {
   .hint-sentence {
     width: 220px;
     font-size: 12px;
-    text-align: center;
+    margin-left: -5px;
   }
+
+  .banner,
+  .wrong {
+    width: 350px;
+    height: 205px;
+    top: 200px;
+    font-size: 32px;
+  }
+
+  .banner .winner,
+  .wrong p {
+    top: 50px;
+    font-size: 26px;
+  }
+
+  .banner a {
+    font-size: 16px;
+    top: -5px;
+  }
+
 }
