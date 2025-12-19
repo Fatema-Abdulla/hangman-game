@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer  type="module" src="./arabic.js"></script>
+    <title>Guessor</title>
+  </head>
+  <body>
+    <section class="buttons">
+      <div class="display-hint">
+        <button class="mute-btn">🔇</button>
+        <button class="hint-btn">تلميح</button>
+        <div class="hint-sentence"></div>
+      </div>
+      <div class="reset-game">
+        <button class="reset-btn">إعادة اللعبة</button>
+        <a class="back-btn" href="index.html"><img src="assets/off-icon.png" alt="back home icon" class="off"/></a>
+      </div>
+    </section>
+
+    <div class="top-bar">
+      <div class="score">النتيجة: 0🥇</div>
+      <div class="round">الجولة 1🔢</div>
+      <div class="timer">الوقت: 240⌛</div>
+    </div>
+    <div class="category"></div>
+    <section class="body-game">
+      <img
+        src="./assets/platform-empty.png"
+        alt="gallows-platform"
+        class="platform"
+      />
+
+      <section class="guess-word">
+        <div class="boxes-ar">
+          <span class="box"></span>
+          <span class="box"></span>
+        </div>
+
+        <div class="keyboard-ar"></div>
+      </section>
+    </section>
+  </body>
+</html>

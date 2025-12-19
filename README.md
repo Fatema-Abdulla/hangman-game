@@ -28,6 +28,7 @@ The game has been uploaded and published; you can view the game [here](https://f
 #### ***Future features***
 - [x] Increase number of round.
 - [x] Increase number of words and category of words.
+- [x] Arabic Version.
 - [ ] Add 3 level easy, medium, hard.
 - [ ] Dark mode.
 

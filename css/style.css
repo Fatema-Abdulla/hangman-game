@@ -34,7 +34,7 @@ body {
   top: -20px;
 }
 
-.action-button{
+.action-button {
   display: flex;
   gap: 10px;
   margin-top: -12px;
@@ -100,7 +100,7 @@ body {
   flex: 1;
 }
 
-.hint-btn{
+.hint-btn {
   background-color: #f97a00;
   border: none;
   color: white;
@@ -110,7 +110,7 @@ body {
   cursor: pointer;
 }
 
-.hint-btn:hover{
+.hint-btn:hover {
   box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -136,7 +136,7 @@ body {
   border-radius: 25px;
 }
 
-.off{
+.off {
   width: 30px;
 }
 
@@ -208,7 +208,15 @@ body {
   gap: 20px;
 }
 
-.boxes .box {
+.boxes-ar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.boxes .box, .boxes-ar .box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,7 +236,15 @@ body {
   cursor: url("../assets/rounded-cursor.png"), pointer;
 }
 
-.keyboard span {
+.keyboard-ar {
+  display: grid;
+  grid-template-columns: repeat(9, 2fr);
+  gap: 20px;
+  cursor: url("../assets/rounded-cursor.png"), pointer;
+  direction: rtl;
+}
+
+.keyboard span, .keyboard-ar span {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -310,6 +326,7 @@ body {
   body {
     overflow-y: auto;
     margin-top: 12px;
+    margin-bottom: 12px;
   }
 
   .title-game {
@@ -335,7 +352,20 @@ body {
     top: -30px;
   }
 
+  .boxes-ar .box {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    top: -30px;
+  }
+
   .keyboard {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .keyboard-ar {
     grid-template-columns: repeat(7, 1fr);
     gap: 12px;
     padding: 10px;
@@ -380,6 +410,10 @@ body {
     text-align: center;
   }
 
+  .body{
+    margin-bottom: 10px;
+  }
+
   .body-game img {
     margin-top: 15px;
     width: 550px;
@@ -394,10 +428,25 @@ body {
     left: 0;
   }
 
+  .boxes-ar .box {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    top: -20px;
+    left: 0;
+  }
+
   .keyboard {
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     padding: 8px;
+  }
+
+  .keyboard-ar {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    padding: 8px;
+    direction: rtl;
   }
 
   .top-bar {
@@ -423,7 +472,6 @@ body {
     font-size: 16px;
     top: 15px;
   }
-
 }
 
 /* Mobile phones (≤576px) */
@@ -437,6 +485,7 @@ body {
   body {
     overflow-y: auto;
     margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   .title-game {
@@ -475,10 +524,22 @@ body {
     top: -10px;
   }
 
+    .boxes-ar .box {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    top: -10px;
+  }
+
   .keyboard {
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;
     padding: 6px;
+  }
+
+  .keyboard-ar {
+    direction: rtl;
+    text-align: right;
   }
 
   .buttons {
@@ -533,5 +594,4 @@ body {
     font-size: 16px;
     top: 15px;
   }
-
 }
