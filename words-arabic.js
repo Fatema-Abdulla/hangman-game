@@ -134,7 +134,7 @@ export const word = [
 
   // دول
   { category: "دول", wordGuess: "مصر", hint: "مشهورة بالاهرامات" },
-  { category: "دول", wordGuess: "الإمارات", hint: "اطول برج بالعالم" },
+  { category: "دول", wordGuess: "الامارات", hint: "اطول برج بالعالم" },
   { category: "دول", wordGuess: "السعوديه", hint: "فيها مكة المكرمة" },
   { category: "دول", wordGuess: "المغرب", hint: "فازت بكأس العرب 2025" },
   { category: "دول", wordGuess: "الجزائر", hint: "اكبر دولة افريقيا" },
@@ -150,7 +150,7 @@ export const word = [
   { category: "دول", wordGuess: "الهند", hint: "مشهورة بالحناء" },
   { category: "دول", wordGuess: "الصين", hint: "السور العظيم" },
   { category: "دول", wordGuess: "اليابان", hint: "تكنولوجيا متقدمة" },
-  { category: "دول", wordGuess: "البرازيل", hint: "مشهورة بكرة القدم النطيفة" },
+  { category: "دول", wordGuess: "البرازيل", hint: "مشهورة بكرة القدم النظيفة" },
 
   // رسوم متحركة
   { category: "رسوم متحركة", wordGuess: "كونان", hint: "محقق ذكي يحل الجرائم" },
