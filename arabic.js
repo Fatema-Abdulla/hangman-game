@@ -62,7 +62,7 @@ const imgList = [
 
 // letter on keyboard
 const allLetter = [
-  "أ",
+  "ا",
   "ب",
   "ت",
   "ث",
@@ -91,7 +91,6 @@ const allLetter = [
   "و",
   "ي",
   "ء",
-  "ا",
 ]
 
 //display the letter in array
