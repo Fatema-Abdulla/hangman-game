@@ -15,7 +15,7 @@ export const word = [
   { category: "فواكه", wordGuess: "اناناس", hint: "حامض وحلو ويستعمل عصير" },
   { category: "فواكه", wordGuess: "كيوي", hint: "صغير أخضر مليء بالفيتامينات" },
   { category: "فواكه", wordGuess: "برتقال", hint: "عصيري ولونه برتقالي غني" },
-  { category: "فواكه", wordGuess: "جوافه", hint: "غني بالفيتامين ومفيد للصحة" },
+  { category: "فواكه", wordGuess: "جوافه", hint: "فاكهة استوائية غنية بفيتامين C" },
 
   // خضار
   { category: "خضار", wordGuess: "بصل", hint: "يسبب الدموع عند التقطيع" },
@@ -45,9 +45,9 @@ export const word = [
 
   // حيوان
   { category: "حيوان", wordGuess: "اسد", hint: "ملك الغاب" },
-  { category: "حيوان", wordGuess: "نمر", hint: "سريع وخطر" },
+  { category: "حيوان", wordGuess: "نمر", hint: "جلده مخطط" },
   { category: "حيوان", wordGuess: "فيل", hint: "ضخم جدا" },
-  { category: "حيوان", wordGuess: "ذئب", hint: "يعيش في البر" },
+  { category: "حيوان", wordGuess: "حمار", hint: "بطيء لكن كان يحمل الامتعة قديما" },
   { category: "حيوان", wordGuess: "حصان", hint: "سريع وقوي" },
   { category: "حيوان", wordGuess: "قرد", hint: "يحب موز" },
   { category: "حيوان", wordGuess: "دب", hint: "قوي وضخم" },
@@ -137,7 +137,7 @@ export const word = [
   { category: "دول", wordGuess: "الامارات", hint: "اطول برج بالعالم" },
   { category: "دول", wordGuess: "السعوديه", hint: "فيها مكة المكرمة" },
   { category: "دول", wordGuess: "المغرب", hint: "فازت بكأس العرب 2025" },
-  { category: "دول", wordGuess: "الجزائر", hint: "اكبر دولة افريقيا" },
+  { category: "دول", wordGuess: "الكويت", hint: "مشهورة بالدرابيل" },
   { category: "دول", wordGuess: "تونس", hint: "تونس الخضراء" },
   { category: "دول", wordGuess: "العراق", hint: "بلاد الرافدين" },
   { category: "دول", wordGuess: "سوريا", hint: "عاصمتها دمشق" },
